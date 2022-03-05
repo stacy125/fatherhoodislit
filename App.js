@@ -1,10 +1,11 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import AddEvent from './src/screens/AddEventScreen';
-import AddReview from './src/screens/AddReviewScreen';
+import AddEventScreen from './src/screens/AddEventScreen';
+import AddReviewScreen from './src/screens/AddReviewScreen';
 import EventScreen from './src/screens/EventScreen';
-import Help from './src/screens/HelpScreen';
+import HelpScreen from './src/screens/HelpScreen';
+import Profile from './src/screens/ProfileScreen';
 import SavedEvents from './src/screens/SavedEvents';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 
@@ -13,11 +14,11 @@ const navigator = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     Event: EventScreen,
-    AddEvent: AddEvent,
-    AddReview: AddReviewScreen,
+    AddEvent: AddEventScreen,
     Help: HelpScreen,
-    Profile: ProfileScreen,
-    SavedEvents: SavedEvents
+    Profile: Profile,
+    SavedEvents: SavedEvents,
+    AddReview: AddReviewScreen
   },
   {
     initialRouteName: 'Welcome',
