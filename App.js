@@ -1,12 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import AddEvent from './src/screens/AddEventScreen';
+import AddReview from './src/screens/AddReviewScreen';
+import EventScreen from './src/screens/EventScreen';
+import Help from './src/screens/HelpScreen';
+import SavedEvents from './src/screens/SavedEvents';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
-export default function App() {
+
+const navigator = createStackNavigator(
+  {
+    Welcome: WelcomeScreen,
+    Event: EventScreen,
+    AddEvent: AddEvent,
+    AddReview: AddReviewScreen,
+    Help: HelpScreen,
+    Profile: ProfileScreen,
+    SavedEvents: SavedEvents
+  },
+  {
+    initialRouteName: 'Welcome',
+    defaultNavigationOptions: {
+      title: 'Fatherhood Is Lit'
+    }
+  })
+
+  const App = createAppContainer(navigator)
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   <Provider>
+     <App />
+   </Provider>
   );
 }
 

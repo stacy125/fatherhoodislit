@@ -14,6 +14,7 @@ const AddEvent = () => {
     </View>
   )
 }
+// add ability to upload an Event
 
 const styles = StyleSheet.create({})
 
