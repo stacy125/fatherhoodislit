@@ -1,4 +1,5 @@
 node_modules/
+YelpAPI.js
 .expo/
 dist/
 npm-debug.*

@@ -8,6 +8,8 @@ import HelpScreen from './src/screens/HelpScreen';
 import Profile from './src/screens/ProfileScreen';
 import SavedEvents from './src/screens/SavedEvents';
 import WelcomeScreen from './src/screens/WelcomeScreen';
+import { Provider } from './src/context/EventContext';
+
 
 
 const navigator = createStackNavigator(
@@ -27,7 +29,7 @@ const navigator = createStackNavigator(
     }
   })
 
-  const App = createAppContainer(navigator)
+const App = createAppContainer(navigator)
 
 export default () => {
   return (
@@ -37,11 +39,4 @@ export default () => {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

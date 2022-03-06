@@ -1,4 +1,5 @@
 import CreateDataContext from "./CreateDataContext";
+import YelpAPI from '../'
 
 const eventReducer = (state, action) => {
     switch (action.type) {
@@ -30,6 +31,6 @@ const eventReducer = (state, action) => {
 
 const getEvents = dispatch => {
     return async () => {
-        
+
     }
 }
