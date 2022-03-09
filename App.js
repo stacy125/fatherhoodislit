@@ -1,41 +1,42 @@
 import React from 'react';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createTopTabNavigator } from 'react-navigation-tabs'
+import SignupScreen from './src/screens/Signup';
+import SigninScreen from './src/screens/Signin'
 import AddEventScreen from './src/screens/AddEventScreen';
 import AddReviewScreen from './src/screens/AddReviewScreen';
 import EventScreen from './src/screens/EventScreen';
 import HelpScreen from './src/screens/HelpScreen';
-import Profile from './src/screens/ProfileScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
 import SavedEvents from './src/screens/SavedEvents';
-import WelcomeScreen from './src/screens/WelcomeScreen';
-import { Provider } from './src/context/EventContext';
+import HomeScreen from './src/screens/HomeScreen';
+import { Provider as AuthProvider } from './src/context/EventContext';
+import { setNavigator } from './src/NavigationRef';
+
+const switchNavigator = createSwitchNavigator({
+  loginFlow: createStackNavigator({
+    Signup: SignupScreen,
+    Signin: SigninScreen,
+  }),
+  // mainFlow: createTopTabNavigator({
+  //   ListFlow: createStackNavigator({
+  //     Home: HomeScreen,
+  //   }),
+  //   Profile: ProfileScreen,
+  //   Events: EventScreen,
+  //   Help: HelpScreen,
+  // }),
+});
 
 
-
-const navigator = createStackNavigator(
-  {
-    Welcome: WelcomeScreen,
-    Event: EventScreen,
-    AddEvent: AddEventScreen,
-    Help: HelpScreen,
-    Profile: Profile,
-    SavedEvents: SavedEvents,
-    AddReview: AddReviewScreen
-  },
-  {
-    initialRouteName: 'Welcome',
-    defaultNavigationOptions: {
-      title: 'Fatherhood Is Lit'
-    }
-  })
-
-const App = createAppContainer(navigator)
+const App = createAppContainer(switchNavigator)
 
 export default () => {
   return (
-   <Provider>
-     <App />
-   </Provider>
+   <AuthProvider>
+      <App ref={(navigator) => { setNavigator(navigator) }}/>
+   </AuthProvider>
   );
 }
 

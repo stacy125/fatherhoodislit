@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const WelcomeScreen = () => {
+const HomeScreen = () => {
   return (
     <View>
       <Text>Welcome to Fatherhood Is Lit</Text>
@@ -14,6 +14,6 @@ const WelcomeScreen = () => {
   )
 }
 
-export default WelcomeScreen
+export default HomeScreen
 
 const styles = StyleSheet.create({})
