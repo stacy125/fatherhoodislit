@@ -2,17 +2,17 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createTopTabNavigator } from 'react-navigation-tabs'
-import SignupScreen from './src/screens/Signup';
-import SigninScreen from './src/screens/Signin'
-import AddEventScreen from './src/screens/AddEventScreen';
-import AddReviewScreen from './src/screens/AddReviewScreen';
-import EventScreen from './src/screens/EventScreen';
-import HelpScreen from './src/screens/HelpScreen';
-import ProfileScreen from './src/screens/ProfileScreen';
-import SavedEvents from './src/screens/SavedEvents';
-import HomeScreen from './src/screens/HomeScreen';
-import { Provider as AuthProvider } from './src/context/EventContext';
-import { setNavigator } from './src/NavigationRef';
+import SignupScreen from './screens/Signup';
+import SigninScreen from './screens/Signin'
+import AddEventScreen from './screens/AddEventScreen';
+import AddReviewScreen from './screens/AddReviewScreen';
+import EventScreen from './screens/EventScreen';
+import HelpScreen from './screens/HelpScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import SavedEvents from './screens/SavedEvents';
+import HomeScreen from './screens/HomeScreen';
+import { Provider as AuthProvider } from './context/EventContext';
+import { setNavigator } from './NavigationRef';
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
