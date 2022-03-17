@@ -4,24 +4,30 @@ import { NavigationEvents } from 'react-navigation';
 import { Context as EventContext } from '../context/EventContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { NativeScreenNavigationContainer } from 'react-native-screens';
 
 const SignupScreen = ({ navigation }) => {
     const { state, signup, clearErrorMessage } = useContext(EventContext);
 
     return (
-        <View style={styles.container}>
-            <NavigationEvents onWillFocus={clearErrorMessage} />
-            <AuthForm
-                headerText="Sign Up for Fatherhood Is Lit"
-                errorMessage={state.errorMessage}
-                submitButtonText="Sign Up"
-                onSubmit={signup}
-            />
-            <NavLink
-                routeName="Signin"
-                text="Already have an account? Sign in instead!"
-            />
-        </View>
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.container}>
+                <NavigationContainer>
+                    <NavigationEvents onWillFocus={clearErrorMessage} />
+                    <AuthForm
+                        headerText="Sign Up for Fatherhood Is Lit"
+                        errorMessage={state.errorMessage}
+                        submitButtonText="Sign Up"
+                        onSubmit={signup}
+                    />
+                    <NavLink
+                        routeName="Signin"
+                        text="Already have an account? Sign in instead!"
+                    />
+                </NavigationContainer>
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 };
 
